@@ -246,7 +246,7 @@ function compareRobots(robot1, robot2) {
 		robot2Sum += countSteps(village1, robot2, []);
 	}
 	console.log(`\n The average number of steps for robot1 is: ${robot1Sum/100} and robot2 is: ${robot2Sum/100} \n`);
-
+	return {num1: robot1Sum/100, num2: robot2Sum/100};
 }
 
 compareRobots(lazyRobot, projectGoalRobot2);

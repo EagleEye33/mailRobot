@@ -1,5 +1,4 @@
 // test: no
-
 (function() {
   "use strict"
 
@@ -29,7 +28,7 @@
       this.robotState = robotState
       this.turn = 0
 
-      let outer = (window.__sandbox ? window.__sandbox.output.div : document.body), doc = outer.ownerDocument
+      let outer = (window.__sandbox ? window.__sandbox.output.div : document.getElementById("animate")), doc = outer.ownerDocument
       this.node = outer.appendChild(doc.createElement("div"))
       this.node.style.cssText = "position: relative; line-height: 0.1; margin-left: 10px"
       this.map = this.node.appendChild(doc.createElement("img"))

@@ -1,10 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="robot_buttons.css">
+<link rel="stylesheet" href="https://eloquentjavascript.net/css/ejs.css">
+
+
+<body>
+
+<p id="firstPar">Go ahead and select a robot from the dropdown menu to display its animation</p>
+
+	<div class="dropdown">
+	<button onclick="showDropdown()" class="dropbtn">Dropdown</button>
+	<div id="myDropdown" class="dropdown-content">
+		<button onclick="runRobot(randomRobot)">RandomRoute</button>
+		<button onclick="runRobot(routeRobot)">StandardRoute</button>
+		<button onclick="runRobot(projectGoalRobot)">SmartRoute</button>
+		<button onclick="runRobot(lazyRobot)">LazyRoute</button>
+		
+	</div>
+</div>
+
+<div id="animate"> </div>
+
+<p id="comparePar"> Select two robots and click the compareRobots button to compare the average number of steps <br>each respective robot takes over a trial of 100 moves</br></p>
+<div class="compareButton">
+	<button onclick="compare()">compareRobots</button>
+</div>
+
+<div class="selectButtons">
+	<button onclick="selectDropdown()" class="selectdropbtn">SelectRobot1</button>
+	<div id="selectmyDropdown" class="selectdropdown-content">
+		<button onclick="select1(randomRobot)">RandomRoute</button>
+		<button onclick="select1(routeRobot)">StandardRoute(routeRobot)</button>
+		<button onclick="select1(projectGoalRobot)">SmartRoute(projectGoalRobot)</button>
+		<button onclick="select1(lazyRobot)">LazyRoute</button>
+	</div>
+</div>
+
+<div class="selectButtons2">
+	<button onclick="selectDropdown2()" class="selectdropbtn2">SelectRobot2</button>
+	<div id="selectmyDropdown2" class="selectdropdown-content2">
+		<button onclick="select2(randomRobot)">RandomRoute</button>
+		<button onclick="select2(routeRobot)">StandardRoute(routeRobot)</button>
+		<button onclick="select2(projectGoalRobot)">SmartRoute(projectGoalRobot)</button>
+		<button onclick="select2(lazyRobot)">LazyRoute</button>
+	</div>
+</div>
+
+<p id="selection1"></p>
+<p id="selection2"></p>
+<p id="compare"></p>
+
+<script> 
+function showDropdown() {
+	document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function selectDropdown() {
+	document.getElementById("selectmyDropdown").classList.toggle("selectshow");
+}
+
+function selectDropdown2() {
+	document.getElementById("selectmyDropdown2").classList.toggle("selectshow2");
+}
+</script>
 <script src="animateVillage.js"></script>
 <script src="aRobot.js"></script>
+<script>
 
-<body><script>
-// Run code here in the context of Chapter 7
+let selection1 = 0;
+let selection2 = 0;
 
-runRobotAnimation(VillageState.random(),
-                  goalOrientedRobot, []);
-</script></body>
+function runRobot(robot) {
+	document.getElementById("animate").innerHTML = ""
+	runRobotAnimation(VillageState.random(), robot, [])
+}
+
+function compare() {
+	if (selection1 != 0 && selection2 != 0) {
+	let robotOutput = compareRobots(selection1,selection2);
+	document.getElementById("compare").innerHTML = "The average number of steps for robot1 is: " + robotOutput.num1 + " and robot2 is: " + robotOutput.num2
+	}
+	
+}
+function select1(option) {
+	selection1 = option;
+	document.getElementById("selection1").innerHTML = "Robot1 will be: " + option.name
+}
+function select2(option) {
+	selection2 = option
+	document.getElementById("selection2").innerHTML = "Robot2 will be: " + option.name
+}
+</script>
+
+</body>
+</html>
