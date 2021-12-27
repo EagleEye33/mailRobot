@@ -8,18 +8,18 @@
 
 <body>
 
-<p id="firstPar">Go ahead and select a robot from the dropdown menu to display its animation</p>
+	<p id="firstPar">Go ahead and select a robot from the dropdown menu to display its animation</p>
 
 	<div class="dropdown">
-	<button onclick="showDropdown()" class="dropbtn">Dropdown</button>
-	<div id="myDropdown" class="dropdown-content">
-		<button onclick="runRobot(randomRobot)">RandomRoute</button>
-		<button onclick="runRobot(routeRobot)">StandardRoute</button>
-		<button onclick="runRobot(projectGoalRobot)">SmartRoute</button>
-		<button onclick="runRobot(lazyRobot)">LazyRoute</button>
-		
+		<button onclick="showDropdown()" class="dropbtn">Dropdown</button>
+		<div id="myDropdown" class="dropdown-content">
+			<button onclick="runRobot(randomRobot)">RandomRoute</button>
+			<button onclick="runRobot(routeRobot)">StandardRoute</button>
+			<button onclick="runRobot(projectGoalRobot)">SmartRoute</button>
+			<button onclick="runRobot(lazyRobot)">LazyRoute</button>
+
+		</div>
 	</div>
-</div>
 
 <div id="animate"> </div>
 
@@ -53,45 +53,45 @@
 <p id="compare"></p>
 
 <script> 
-function showDropdown() {
-	document.getElementById("myDropdown").classList.toggle("show");
-}
+	function showDropdown() {
+		document.getElementById("myDropdown").classList.toggle("show");
+	}
 
-function selectDropdown() {
-	document.getElementById("selectmyDropdown").classList.toggle("selectshow");
-}
+	function selectDropdown() {
+		document.getElementById("selectmyDropdown").classList.toggle("selectshow");
+	}
 
-function selectDropdown2() {
-	document.getElementById("selectmyDropdown2").classList.toggle("selectshow2");
-}
+	function selectDropdown2() {
+		document.getElementById("selectmyDropdown2").classList.toggle("selectshow2");
+	}
 </script>
 <script src="animateVillage.js"></script>
 <script src="aRobot.js"></script>
 <script>
 
-let selection1 = 0;
-let selection2 = 0;
+	let selection1 = 0;
+	let selection2 = 0;
 
-function runRobot(robot) {
-	document.getElementById("animate").innerHTML = ""
-	runRobotAnimation(VillageState.random(), robot, [])
-}
-
-function compare() {
-	if (selection1 != 0 && selection2 != 0) {
-	let robotOutput = compareRobots(selection1,selection2);
-	document.getElementById("compare").innerHTML = "The average number of steps for robot1 is: " + robotOutput.num1 + " and robot2 is: " + robotOutput.num2
+	function runRobot(robot) {
+		document.getElementById("animate").innerHTML = ""
+		runRobotAnimation(VillageState.random(), robot, [])
 	}
-	
-}
-function select1(option) {
-	selection1 = option;
-	document.getElementById("selection1").innerHTML = "Robot1 will be: " + option.name
-}
-function select2(option) {
-	selection2 = option
-	document.getElementById("selection2").innerHTML = "Robot2 will be: " + option.name
-}
+
+	function compare() {
+		if (selection1 != 0 && selection2 != 0) {
+			let robotOutput = compareRobots(selection1,selection2);
+			document.getElementById("compare").innerHTML = "The average number of steps for robot1 is: " + robotOutput.num1 + " and robot2 is: " + robotOutput.num2
+		}
+
+	}
+	function select1(option) {
+		selection1 = option;
+		document.getElementById("selection1").innerHTML = "Robot1 will be: " + option.name
+	}
+	function select2(option) {
+		selection2 = option
+		document.getElementById("selection2").innerHTML = "Robot2 will be: " + option.name
+	}
 </script>
 
 </body>
