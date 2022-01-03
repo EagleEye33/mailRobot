@@ -249,4 +249,4 @@ function compareRobots(robot1, robot2) {
 	return {num1: robot1Sum/100, num2: robot2Sum/100};
 }
 
-compareRobots(lazyRobot, projectGoalRobot2);
+//compareRobots(lazyRobot, projectGoalRobot2);

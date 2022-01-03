@@ -31,20 +31,20 @@
 <div class="selectButtons">
 	<button onclick="selectDropdown()" class="selectdropbtn">SelectRobot1</button>
 	<div id="selectmyDropdown" class="selectdropdown-content">
-		<button onclick="select1(randomRobot)">RandomRoute</button>
-		<button onclick="select1(routeRobot)">StandardRoute(routeRobot)</button>
-		<button onclick="select1(projectGoalRobot)">SmartRoute(projectGoalRobot)</button>
-		<button onclick="select1(lazyRobot)">LazyRoute</button>
+		<button onclick="select1(randomRobot, 'RandomRoute')">RandomRoute</button>
+		<button onclick="select1(routeRobot, 'StandardRoute')">StandardRoute</button>
+		<button onclick="select1(projectGoalRobot, 'SmartRoute')">SmartRoute</button>
+		<button onclick="select1(lazyRobot, 'LazyRoute')">LazyRoute</button>
 	</div>
 </div>
 
 <div class="selectButtons2">
 	<button onclick="selectDropdown2()" class="selectdropbtn2">SelectRobot2</button>
 	<div id="selectmyDropdown2" class="selectdropdown-content2">
-		<button onclick="select2(randomRobot)">RandomRoute</button>
-		<button onclick="select2(routeRobot)">StandardRoute(routeRobot)</button>
-		<button onclick="select2(projectGoalRobot)">SmartRoute(projectGoalRobot)</button>
-		<button onclick="select2(lazyRobot)">LazyRoute</button>
+		<button onclick="select2(randomRobot, 'RandomRoute')">RandomRoute</button>
+		<button onclick="select2(routeRobot, 'StandardRoute')">StandardRoute</button>
+		<button onclick="select2(projectGoalRobot, 'SmartRoute')">SmartRoute</button>
+		<button onclick="select2(lazyRobot, 'LazyRoute')">LazyRoute</button>
 	</div>
 </div>
 
@@ -84,13 +84,13 @@
 		}
 
 	}
-	function select1(option) {
+	function select1(option, name) {
 		selection1 = option;
-		document.getElementById("selection1").innerHTML = "Robot1 will be: " + option.name
+		document.getElementById("selection1").innerHTML = "Robot1 will be: " + name
 	}
-	function select2(option) {
+	function select2(option, name) {
 		selection2 = option
-		document.getElementById("selection2").innerHTML = "Robot2 will be: " + option.name
+		document.getElementById("selection2").innerHTML = "Robot2 will be: " + name
 	}
 </script>
 
